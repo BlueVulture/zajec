@@ -11,7 +11,7 @@ mysqli_connect($db_server, $db_user, $db_pass);
 //izbira podatkovne baze na strežniku
 mysql_select_db($db_name);
 
-//reševanje težave s šumniki
+//reševanje težave s šumnikiwerwer
 mysql_query("SET NAMES 'utf8'");
 
 ?>
