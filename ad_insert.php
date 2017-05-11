@@ -21,14 +21,14 @@
                           VALUES ('%s','%s','%s',
                           '%s',$category_id,
                           $user_id,'%s')",
-                mysql_real_escape_string($title),
-                mysql_real_escape_string($date_b),
-                mysql_real_escape_string($date_e),
-                mysql_real_escape_string($price),
-                mysql_real_escape_string($description)
+                mysqli_real_escape_string($title),
+                mysqli_real_escape_string($date_b),
+                mysqli_real_escape_string($date_e),
+                mysqli_real_escape_string($price),
+                mysqli_real_escape_string($description)
                 );
-                mysql_query($query);
-                $ad_id = mysql_insert_id();
+                mysqli_query($conn, $query);
+                $ad_id = mysqli_insert_id();
                 header("Location: ad_view.php?id=$ad_id");
     }
     else {

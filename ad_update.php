@@ -23,13 +23,13 @@
                                        category_id = $category_id,
                                        price = '%s'    
                         WHERE id = $ad_id AND user_id = $user_id",
-                mysql_real_escape_string($title),
-                mysql_real_escape_string($date_b),
-                mysql_real_escape_string($date_e),
-                mysql_real_escape_string($description),
-                mysql_real_escape_string($price));
+                mysqli_real_escape_string($title),
+                mysqli_real_escape_string($date_b),
+                mysqli_real_escape_string($date_e),
+                mysqli_real_escape_string($description),
+                mysqli_real_escape_string($price));
         
-        mysql_query($sql);
+        mysqli_query($conn, $sql);
         
         header("Location: ad_view.php?id=".$ad_id);
         die();

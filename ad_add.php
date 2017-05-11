@@ -25,11 +25,11 @@
                 <?php 
                 include_once 'database.php';
                 
-                $categories = mysql_query(
+                $categories = mysqli_query($conn,
                         "SELECT * 
                          FROM categories");
                 echo '<select name="category_id">';
-                while ($category = mysql_fetch_array($categories)) {
+                while ($category = mysqli_fetch_array($categories)) {
                     echo '<option value="'
                          .$category["id"].'">'
                          .$category["name"]

@@ -8,17 +8,17 @@
     $sql = "SELECT * FROM ads 
             WHERE id=$ad_id AND user_id=$user_id";
     
-    $result = mysql_query($sql);
+    $result = mysqli_query($conn, $sql);
     
     //če slučajno uporabnik ni lastni, ga preusmerim nazaj na 
     //seznam vseh oglasov
-    if (mysql_num_rows($result) != 1) {
+    if (mysqli_num_rows($result) != 1) {
         header("Location: ad_list.php");
         die();
     }
 
     //vse podatke o oglasu si shranim v spremenljivko $ad
-    $ad = mysql_fetch_array($result);
+    $ad = mysqli_fetch_array($result);
     
     
     
@@ -46,11 +46,11 @@
             <td>Kategorija:</td>
             <td>
                 <?php 
-                $categories = mysql_query(
+                $categories = mysqli_query($conn,
                         "SELECT * 
                          FROM categories");
                 echo '<select name="category_id">';
-                while ($category = mysql_fetch_array($categories)) {
+                while ($category = mysqli_fetch_array($categories)) {
                     if ($ad['category_id'] == $category["id"]) {
                        echo '<option value="'
                              .$category["id"].'" selected="selected">'
