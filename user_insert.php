@@ -16,7 +16,7 @@
             $query = "INSERT INTO users(first_name,last_name,phone,email,pass)
                         VALUES ('$first_name','$last_name','$phone','$email','$pass1')";
             //echo $query; die();
-            if(!mysql_query($query)) {
+            if(!mysqli_query($conn, $query)) {
                 //če ni uspešno, naj redirecta na registracijo
                 header("Location: registration.php");
             }

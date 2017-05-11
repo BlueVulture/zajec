@@ -9,9 +9,9 @@ $db_server = 'sql308.byetcluster.com';
 $conn = mysqli_connect($db_server, $db_user, $db_pass);
 
 //izbira podatkovne baze na strežniku
-$db = mysqli_select_db($db_name);
+$db = mysqli_select_db($conn, $db_name);
 
 //reševanje težave s šumniki
-$query = mysqli_query("SET NAMES 'utf8'");
+$query = mysqli_query($conn, "SET NAMES 'utf8'");
 
 ?>
