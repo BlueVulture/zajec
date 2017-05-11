@@ -2,8 +2,8 @@
 
 $db_user ='b31_20068105';
 $db_pass = 'BeliZajec123';
-$db_name = 'b31_20068105_zajec';
-$db_server = 'sql308.byetcluster.com';
+$db_name = 'zajec';
+$db_server = 'localhost';
 
 //povezava na mysql strežnik;
 $conn = mysqli_connect($db_server, $db_user, $db_pass);
