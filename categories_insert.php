@@ -7,9 +7,9 @@
     if (!empty($name)) {
         $query = sprintf("INSERT INTO categories(name)
                           VALUES ('%s')",
-                mysql_real_escape_string($name)
+                mysqli_real_escape_string($name)
                 );
-                mysql_query($query);
+                mysqli_query($conn, $query);
                 header("Location: categories_list.php");
     }
     else {

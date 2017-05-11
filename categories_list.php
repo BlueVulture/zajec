@@ -8,9 +8,9 @@
     $sql = "SELECT * 
             FROM categories c";
     
-    $result = mysql_query($sql);
+    $result = mysqli_query($conn, $sql);
     
-    while ($row = mysql_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($result)) {
         echo "<p>";
             echo $row['name'];
             echo ' <a href="categories_delete.php?id='.$row['id'].'" 

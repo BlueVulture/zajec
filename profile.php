@@ -5,9 +5,9 @@ include_once 'database.php';
 $user_id = $_SESSION['user_id'];
 
 $query = "SELECT * FROM users WHERE id=$user_id";
-$result = mysql_query($query);
+$result = mysqli_query($conn, $query);
 //imamo vse podatke o uporabniku
-$user = mysql_fetch_array($result);
+$user = mysqli_fetch_array($result);
 
 if (isset($_POST['submit'])) {
     if (!empty($_POST['pass0'])) {
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
             //če je geslo enako staremu - spremenim v novo
             if ($_POST['pass1'] == $_POST['pass2']) {
                 $pass = sha1($_POST['pass1']);
-                mysql_query("UPDATE users SET pass = '$pass'
+                mysqli_query($conn, "UPDATE users SET pass = '$pass'
                             WHERE id = $user_id");
             }
         }
@@ -31,17 +31,17 @@ if (isset($_POST['submit'])) {
                             phone = '%s',
                             email = '%s'
                            WHERE id = $user_id", 
-            mysql_real_escape_string($first_name), 
-            mysql_real_escape_string($last_name), 
-            mysql_real_escape_string($phone), 
-            mysql_real_escape_string($email));
-    mysql_query($query);
+            mysqli_real_escape_string($first_name), 
+            mysqli_real_escape_string($last_name), 
+            mysqli_real_escape_string($phone), 
+            mysqli_real_escape_string($email));
+    mysqli_query($conn, $query);
 }
 
 $query = "SELECT * FROM users WHERE id=$user_id";
-$result = mysql_query($query);
+$result = mysqli_query($conn, $query);
 //imamo vse podatke o uporabniku
-$user = mysql_fetch_array($result);
+$user = mysqli_fetch_array($result);
 ?>
 
 <h1>Moj profil</h1>
