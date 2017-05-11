@@ -9,9 +9,9 @@
     $sql = "SELECT * FROM users WHERE id=".$_SESSION['user_id'];
     //pošljem poizvedbo v PB in v spremenljivko query
     //se mi shrani rezultat
-    $query = mysql_query($sql);
+    $query = mysqli_query($conn, $sql);
     //rezultat spremenim v "berljivo" obliko tabele oz. array-a
-    $result = mysql_fetch_array($query);
+    $result = mysqli_fetch_array($query);
     
     echo "Ime: ".$result['first_name'].'<br />';
     echo "Priimek: ".$result['last_name'].'<br />';

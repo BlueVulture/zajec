@@ -12,12 +12,12 @@ if (!empty($email) && !empty($pass)) {
     $pass = sha1($pass);
     $query = sprintf("SELECT * FROM users 
                         WHERE email='%s' AND pass = '%s'",
-            mysqli_real_escape_string($email),
-            mysqli_real_escape_string($pass));
+            mysqli_real_escape_string($conn, $email),
+            mysqli_real_escape_string($conn, $pass));
     
     $result = mysqli_query($conn, $query);
     //število vrstic mora biti enako 1
-    if (mysqli_num_rows($result) == 1) {
+    if (mysqli_num_rows($result) > 0) {
         //vse je ok - podatki so ustrezni
         //shranimo si podatke o uporabniku
         $user = mysqli_fetch_array($result);
