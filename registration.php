@@ -9,12 +9,11 @@
     Priimek: <input type="text" name="last_name" /><br />
     E-pošto: <input type="email" name="email" /><br />
     Telefon: <input type="text" name="phone" /><br />
-    Geslo: <input type="password" name="pass1" /><br />
+    Geslo: <input type="password" name="pass1"/><br />
     Geslo(2x): <input type="password" name="pass2" /><br />
     <input type="submit" name="submit" value="Shrani" />
     <input type="reset" name="reset" value="Prekliči" />
 </form>
-
 <?php
     include_once 'nav_menu_ghost.php';
     include_once 'footer.php';
