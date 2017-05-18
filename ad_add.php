@@ -38,6 +38,24 @@
                 echo '</select>';
                 ?>
             </td>
+           <!-- <td>Vrsta oglasa:</td>
+            <td>
+                <?php /*
+                include_once 'database.php';
+                
+                $categories = mysqli_query($conn,
+                        "SELECT * 
+                         FROM categories");
+                echo '<select name="category_id">';
+                while ($category = mysqli_fetch_array($categories)) {
+                    echo '<option value="'
+                         .$category["id"].'">'
+                         .$category["name"]
+                         .'</option>';
+                }
+                echo '</select>';*/
+                ?>
+            </td>-->
         </tr>
         <tr>
             <td>Opis:</td>
