@@ -8,7 +8,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin: 0;
 	padding: 0;
-	background: #050505 url(images/img07.jpg) repeat;
+	background: #050505 url(images/img09.jpg) repeat;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #5B5B5B;
@@ -52,7 +52,7 @@ a:hover {
 }
 
 #wrapper {
-	background: #FFFFFF url(images/img07.jpg) repeat;
+	background: #FFFFFF url(images/img09.jpg) repeat;
 }
 
 .container {
