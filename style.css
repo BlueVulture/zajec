@@ -592,7 +592,9 @@ a:hover {
     padding: 5px;
 }
 
-
+input {
+    width: 200px;
+}
 
 
 

@@ -59,5 +59,6 @@ $user = mysqli_fetch_array($result);
 </form>
 
 <?php
-include_once 'footer.php';
+include_once 'nav_menu.php';
+    include_once 'footer.php';
 ?>

@@ -110,5 +110,6 @@ if ($_SESSION['user_id'] == $ad['user_id']) {
     echo ' <a href="ad_edit.php?id=' . $ad_id . '">Uredi</a>';
 }
 
-include_once 'footer.php';
+include_once 'nav_menu.php';
+    include_once 'footer.php';
 ?>

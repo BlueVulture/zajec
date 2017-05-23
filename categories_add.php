@@ -15,5 +15,6 @@
     </table>
 </form>
  <?php   
+    include_once 'nav_menu.php';
     include_once 'footer.php';
 ?>

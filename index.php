@@ -1,6 +1,7 @@
 <?php
     include_once 'header.php';
     include_once 'database.php';
+
 ?>
 <h1>Pozdravljeni</h1>
 
@@ -21,5 +22,6 @@
 </p>
 
 <?php
+    include_once 'nav_menu.php';
     include_once 'footer.php';
 ?>

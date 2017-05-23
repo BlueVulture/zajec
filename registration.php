@@ -16,5 +16,6 @@
 </form>
 
 <?php
+    include_once 'nav_menu_ghost.php';
     include_once 'footer.php';
 ?>
