@@ -73,7 +73,7 @@ Released   : 20120915
 			</div>
 		</div>
 		<div id="banner">
-			<div class="content"><img src="images/img02.jpg" width="1000" height="300" alt="" /></div>
+			<div class="content"><img src="images/img06.jpg" width="1000" height="300" alt="" /></div>
 		</div>
 	</div>
 	<!-- end #header -->
