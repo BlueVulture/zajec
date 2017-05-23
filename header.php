@@ -20,6 +20,7 @@ Released   : 20120915
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Keyborad by FCT</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="icon" rel="../images/rabbit_icon.png">
 <!-- Add jQuery library -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 

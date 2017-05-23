@@ -11,7 +11,7 @@ body {
 	background: #050505 url(../images/img01.jpg) repeat;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	color: #5B5B5B;
+	color: black;
 }
 
 h1, h2, h3 {
@@ -344,7 +344,7 @@ a:hover {
 
 #sidebar h2 {
 	height: 38px;
-	padding: 0px 0px 30px 0px;
+	padding: 0px 0px 10px 0px;
 	letter-spacing: -.5px;
 	font-size: 1.8em;
 	color: #222222;
@@ -594,6 +594,7 @@ a:hover {
 
 input {
     width: 200px;
+    margin: 0px 0px 10px 5px
 }
 
 
