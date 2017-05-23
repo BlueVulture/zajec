@@ -3,7 +3,7 @@
 $db_user ='b31_20068105';
 $db_pass = 'BeliZajec123';
 $db_name = 'zajec';
-$db_server = 'localhost:81';
+$db_server = 'localhost';
 
 //povezava na mysql strežnik;
 $conn = mysqli_connect($db_server, $db_user, $db_pass);

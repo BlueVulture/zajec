@@ -17,7 +17,7 @@ if (!empty($email) && !empty($pass)) {
     
     $result = mysqli_query($conn, $query);
     //število vrstic mora biti enako 1
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) == 1) {
         //vse je ok - podatki so ustrezni
         //shranimo si podatke o uporabniku
         $user = mysqli_fetch_array($result);
