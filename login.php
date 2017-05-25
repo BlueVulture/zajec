@@ -3,8 +3,10 @@
 ?>
 
 <form action="login_check.php" method="post" onsubmit="return formCheck(this)">
-    E-pošta: <input type="text" name="email" /><br />
+    <span class="user_input"> 
+    E-pošta: <input type="text" name="email"  /><br />
     Geslo: <input type="password" name="pass" onkeypress="skrij()" /><span id="error"></span><br />
+    </span>
     
     <input type="submit" name="submit" value="Prijavi" />
 </form>

@@ -216,7 +216,7 @@ a:hover {
 #page {
 	width: 960px;
 	margin: 0 auto;
-	padding: 30px 0px;
+	padding: 5px 0px;
 }
 
 /* Content */
@@ -224,7 +224,7 @@ a:hover {
 #content {
 	float: right;
 	width: 800px;
-	padding: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
 }
 
 .post {
@@ -592,7 +592,7 @@ a:hover {
     padding: 5px;
 }
 
-input {
+.user_input input {
     width: 200px;
     margin: 0px 0px 10px 5px
 }
