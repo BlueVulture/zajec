@@ -8,7 +8,7 @@
     
     $query = sprintf("INSERT INTO 
                       comments(ad_id, user_id, content, date_c)
-                      VALUES ($ad_id, $user_id, '%s',NOW())",
+                      VALUES ($ad_id, $user_id, '%s', NOW())",
                mysqli_real_escape_string($comment));
     /*$query = "INSERT INTO 
                       comments(ad_id, user_id, content, date_c)

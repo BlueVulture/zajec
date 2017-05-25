@@ -21,7 +21,7 @@ $ad = mysqli_fetch_array($result);
         <?php
         //prebrat vse slike, vezane na ta oglas
         $query = "SELECT * FROM pictures
-                WHERE ad_id = $ad_id";
+                WHERE ad_id = '$ad_id'";
         $result = mysqli_query($conn, $query);
         //preverim, če ima oglas sploh, kakšno sliko
         if (mysqli_num_rows($result) == 0) {
@@ -49,7 +49,7 @@ $ad = mysqli_fetch_array($result);
         <?php
             if ($_SESSION['user_id'] == $ad['user_id']) {
         ?>
-        <form action="ad_add_picture.php" method="post" enctype="multipart/form-data">
+        <form action="ad_add_picture.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
             <input type="hidden" name="id" value="<?php echo $ad_id; ?>" />
             <input type="file" name="file" />
             <input type="submit" value="Naloži" />
@@ -72,10 +72,11 @@ $ad = mysqli_fetch_array($result);
         <form action="comments_insert.php" method="post">
             <input type="hidden" name="ad_id" 
                    value="<?php echo $ad_id; ?>" />
-            <textarea name="comment" cols="23" rows="4"></textarea>
+            <textarea name="comment" cols="50" rows="4"></textarea>
             <br />
             <input type="submit" name ="submit" value="Pošlji" />
         </form>
+        <hr>
 <?php
    //izpis vseh komentarjev za ta oglas
     $query = "SELECT c.*, u.first_name, u.last_name  

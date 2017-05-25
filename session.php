@@ -2,7 +2,7 @@
     //vzpostavimo sejo
     session_start();
 
-    //bolkada za neprijavljene uporabnike
+    //blokada za neprijavljene uporabnike
     if (!isset($_SESSION['user_id']) && 
             $_SERVER['REQUEST_URI'] != '/zajec/registration.php' &&
             $_SERVER['REQUEST_URI'] != '/zajec/login.php' &&

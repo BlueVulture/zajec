@@ -583,6 +583,7 @@ a:hover {
 #comments {
     clear: both;
     width: 100%;
+    margin-top: 20px;
     /*border-color: #000000;
     border-width: 2px;
     border-style: solid;*/
@@ -610,4 +611,9 @@ a:hover {
 
 #ad-slike {
     vertical-align: top;
+}
+
+#nalozi-slike {
+    display: block;
+    margin: 5px 0px 10px 0px;
 }
