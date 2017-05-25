@@ -617,3 +617,7 @@ a:hover {
     display: block;
     margin: 5px 0px 10px 0px;
 }
+
+.comment {
+    margin-bottom: 10px;
+}
