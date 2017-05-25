@@ -21,11 +21,11 @@
                           VALUES ('%s','%s','%s',
                           '%s',$category_id,
                           $user_id,'%s')",
-                mysqli_real_escape_string($title),
-                mysqli_real_escape_string($date_b),
-                mysqli_real_escape_string($date_e),
-                mysqli_real_escape_string($price),
-                mysqli_real_escape_string($description)
+                mysqli_real_escape_string($conn, $title),
+                mysqli_real_escape_string($conn, $date_b),
+                mysqli_real_escape_string($conn, $date_e),
+                mysqli_real_escape_string($conn, $price),
+                mysqli_real_escape_string($conn, $description)
                 );
                 mysqli_query($conn, $query);
                 $ad_id = mysqli_insert_id();

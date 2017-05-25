@@ -22,6 +22,9 @@ if (!empty($email) && !empty($pass)) {
         //shranimo si podatke o uporabniku
         $user = mysqli_fetch_array($result);
         //v sejo si shranimo podatke o uporabniku
+        //if('name'== 'admin'){
+        //$_SESSION['user_id'] = $admin['id'];
+        //}
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['name'] = $user['first_name'].' '.$user['last_name'];
         header("location: index.php");
