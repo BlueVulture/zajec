@@ -29,7 +29,8 @@
                 );
                 mysqli_query($conn, $query);
                 $ad_id = mysqli_insert_id();
-                header("Location: ad_view.php?id=$ad_id");
+                var_dump($ad_id);
+//                header("Location: ad_view.php?id='$ad_id'");
     }
     else {
         header("Location: ad_add.php");
