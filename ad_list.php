@@ -2,7 +2,7 @@
     include_once 'header.php';
     include_once 'database.php';
     //ne želim prikazati preteklih oglasov
-    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
+   $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
     $curent_date = date('Y-m-d',$yesterday);
     
     $sql = "SELECT a.id, a.title, a.price, c.name 
