@@ -107,8 +107,8 @@ $ad = mysqli_fetch_array($result);
 //preverim, če je oglas od trenutno prijavljenega
 //uporabnika
 if ($_SESSION['user_id'] == $ad['user_id']) {
-    echo '<a href="ad_delete.php?id=' . $ad_id . '">Izbriši</a>';
-    echo ' <a href="ad_edit.php?id=' . $ad_id . '">Uredi</a>';
+    echo '<span id="del_ad"><a href="ad_delete.php?id=' . $ad_id . '"><button type="button">Izbriši</button></a>';
+    echo ' <a href="ad_edit.php?id=' . $ad_id . '"><button type="button">Uredi</button></a></span>';
 }
 
 include_once 'nav_menu.php';

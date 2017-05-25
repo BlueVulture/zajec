@@ -621,3 +621,8 @@ a:hover {
 .comment {
     margin-bottom: 10px;
 }
+
+#del_ad {
+    display: block;
+    float: right;
+}
