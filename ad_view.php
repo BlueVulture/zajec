@@ -88,14 +88,13 @@ $ad = mysqli_fetch_array($result);
     
     while ($row = mysqli_fetch_array($result)) {
         echo '<div class="comment">';
-        echo $row['first_name'].' '.$row['last_name'].' - '
-                .date('d. m. Y H:i:s',strtotime($row['date_c'])).'<br />';
+        echo '<span class="com_aut">'.$row['first_name'].' '.$row['last_name'].' - '.date('d. m. Y H:i:s',strtotime($row['date_c'])).'</span>';
+        
         echo htmlspecialchars($row['content']);
-        if (($ad['user_id'] == $_SESSION['user_id']) || 
-                ($row['user_id'] == $_SESSION['user_id'] )) {
+        
+        if (($ad['user_id'] == $_SESSION['user_id']) || ($row['user_id'] == $_SESSION['user_id'] )) {
             echo '<br />';
-            echo '<a href="comments_delete.php?id='.$row['id'].'&ad_id='.$ad_id.'">
-                Izbriši</a>';
+            echo '<a href="comments_delete.php?id='.$row['id'].'&ad_id='.$ad_id.'">Izbriši</a>';
         }
         echo '</div>';
     }

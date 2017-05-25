@@ -9,7 +9,7 @@
     $query = sprintf("INSERT INTO 
                       comments(ad_id, user_id, content, date_c)
                       VALUES ($ad_id, $user_id, '%s', NOW())",
-               mysqli_real_escape_string($comment));
+               mysqli_real_escape_string($conn, $comment));
     /*$query = "INSERT INTO 
                       comments(ad_id, user_id, content, date_c)
                       VALUES ($ad_id, $user_id, '$comment',NOW())";*/
@@ -18,5 +18,7 @@
     mysqli_query($conn, $query);
     
     //preusmerimo nazaj na oglas
-    header("Location: ad_view.php?id=$ad_id");
+    
+    var_dump($query)
+//    header("Location: ad_view.php?id=$ad_id");
 ?>

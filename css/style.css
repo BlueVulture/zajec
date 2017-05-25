@@ -626,3 +626,8 @@ a:hover {
     display: block;
     float: right;
 }
+
+.com_aut {
+    display: block;
+    margin-bottom: 5px;
+}
