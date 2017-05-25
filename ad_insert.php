@@ -3,7 +3,7 @@
     include_once 'database.php';
     
     $title = $_POST['title'];
-    $date_b =date("Y:m:d h:m:s");
+    $date_b = date("Y-m-d h:m:s");
     $date_e = $_POST['date_e'];
     $price = $_POST['price'];
     $category_id = (int)$_POST['category_id'];
@@ -29,8 +29,8 @@
                 );
                 mysqli_query($conn, $query);
                 $ad_id = mysqli_insert_id();
-                var_dump($ad_id);
-//                header("Location: ad_view.php?id='$ad_id'");
+//                var_dump($ad_id);
+                header("Location: ad_view.php?id='$ad_id'");
     }
     else {
         header("Location: ad_add.php");
