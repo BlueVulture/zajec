@@ -19,6 +19,6 @@
     
     //preusmerimo nazaj na oglas
     
-    var_dump($query)
-//    header("Location: ad_view.php?id=$ad_id");
+//    var_dump($query)
+    header("Location: ad_view.php?id=$ad_id");
 ?>
