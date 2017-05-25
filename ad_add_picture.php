@@ -13,9 +13,11 @@
         header("Location: ad_list.php");
         die();
     }
+    
     //slike oz. datiteke nimam v POST, ampak
     //jo imam v $_FILES
     $allowed = array("jpg", "png", "gif", "jpeg");
+    
     //spremenljivki $_FILES['file']['name'] se nahaja
     //ime naložene datoteke
     $ext = end(explode(".",$_FILES['file']['name']));
@@ -27,6 +29,7 @@
         $new_name = "pictures/".date("YmdHis")."-".$ad_id."-".$_FILES['file']['name'];
         move_uploaded_file($_FILES['file']['tmp_name'],
                 $new_name);
+        
         //zapisat sliko v bazo!
         mysqli_query($conn, "INSERT INTO pictures (ad_id, url)
                      VALUES ($ad_id, '$new_name')");

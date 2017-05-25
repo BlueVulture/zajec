@@ -574,7 +574,8 @@ a:hover {
 
 #ad_data {
     float: right;
-    width: 396px;
+    width: 380px;
+    position: static;
     /*border-color: #000000;
     border-width: 2px;
     border-style: solid;*/
@@ -588,10 +589,13 @@ a:hover {
 }
 
 #notice {
-    background-color: #0000FF;
+    background-color: red;
     color: #FFFFFF;    
     margin: 0 auto;
     padding: 5px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    
 }
 
 .user_input input {
@@ -604,3 +608,6 @@ a:hover {
     /*text-transform: none;*/
 }
 
+#ad-slike {
+    vertical-align: top;
+}

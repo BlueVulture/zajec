@@ -9,6 +9,7 @@
         <tr>
             <td>Naslov:</td>
             <td><input type="text" name="title" required="required" /></td>
+            <td id="ad-slike" rowspan="6"></td>
         </tr>
         <tr>
             <td>Datum začetka:</td>
