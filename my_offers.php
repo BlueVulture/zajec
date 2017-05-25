@@ -8,6 +8,8 @@
     
     $result = mysqli_query($conn, $sql);
     
+    echo '<h3 class="sub-title">Moji oglasi</h3>';
+    
     while ($row = mysqli_fetch_array($result)) {
         echo '<div class="oglas">';
         //prikažem sliko

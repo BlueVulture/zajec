@@ -1,6 +1,9 @@
 <?php
     include_once 'header.php';
 ?>
+
+<h3 class="sub-title">Dodaj oglas</h3>
+
 <form action="ad_insert.php" method="post">
     <table border="0">
         <tr>

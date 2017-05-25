@@ -341,6 +341,7 @@ a:hover {
 #sidebar li li a {
 	padding: 0px 0px 0px 20px;
 	background: url(images/img04.jpg) no-repeat left 50%;
+        text-decoration: none;
 }
 
 #sidebar h2 {
@@ -598,5 +599,8 @@ a:hover {
     margin: 0px 0px 10px 5px
 }
 
-
+.sub-title {
+    margin-bottom: 30px;
+    /*text-transform: none;*/
+}
 
