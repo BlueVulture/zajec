@@ -11,10 +11,10 @@
             <td><input type="text" name="title" required="required" /></td>
             <td id="ad-slike" rowspan="6"></td>
         </tr>
-        <tr>
+<!--        <tr>
             <td>Datum začetka:</td>
             <td><input type="date" name="date_b" required="required" /></td>
-        </tr>
+        </tr>-->
         <tr>
             <td>Datum konca:</td>
             <td><input type="date" name="date_e" required="required" /></td>

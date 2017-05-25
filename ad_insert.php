@@ -3,7 +3,7 @@
     include_once 'database.php';
     
     $title = $_POST['title'];
-    $date_b = $_POST['date_b'];
+    $date_b =date("Y:m:d h:m:s");
     $date_e = $_POST['date_e'];
     $price = $_POST['price'];
     $category_id = (int)$_POST['category_id'];
