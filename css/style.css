@@ -36,6 +36,11 @@ h3 {
 	font-size: 1.6em;
 }
 
+h4 {
+	margin: 0px 0px 15px 0px;
+	font-weight: bold;
+}
+
 p, ul, ol {
 	margin-top: 0;
 	line-height: 180%;
@@ -559,7 +564,7 @@ a:hover {
 
 #ad_pictures .delete_wrap {
     float: left;
-    margin-right: 3px;    
+    margin-right: 3px;
 }
 
 #ad_pictures .delete_wrap a.myaction {
@@ -568,7 +573,7 @@ a:hover {
 }
 
 #ad_pictures .delete_wrap:hover a.myaction {
-    visibility: visible;    
+    visibility: visible;
     display: block;
 }
 
@@ -591,12 +596,12 @@ a:hover {
 
 #notice {
     background-color: red;
-    color: #FFFFFF;    
+    color: #FFFFFF;
     margin: 0 auto;
     padding: 5px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
-    
+
 }
 
 .user_input input {
@@ -615,7 +620,7 @@ a:hover {
 
 #nalozi-slike {
     display: block;
-    margin: 5px 0px 10px 0px;
+    margin: 5px 0px 20px 0px;
 }
 
 .comment {
@@ -630,4 +635,8 @@ a:hover {
 .com_aut {
     display: block;
     margin-bottom: 5px;
+}
+
+#cena {
+	margin: 5px 0px 5px 0px;
 }
