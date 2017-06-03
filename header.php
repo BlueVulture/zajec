@@ -7,7 +7,7 @@ Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 
-Name       : Keyboard 
+Name       : Keyboard
 Description: A two-column, fixed-width design with dark color scheme.
 Version    : 1.0
 Released   : 20120915
@@ -18,7 +18,7 @@ Released   : 20120915
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Keyborad by FCT</title>
+<title>Zajec</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
 <link rel="icon" rel="../images/rabbit_icon.png">
 <!-- Add jQuery library -->
@@ -39,7 +39,7 @@ Released   : 20120915
 <link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 <script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 <script type="text/javascript">
-	
+
         $(document).ready(function() {
 	$(".fancybox").fancybox({
 		openEffect	: 'none',
@@ -78,12 +78,12 @@ Released   : 20120915
 		</div>
 	</div>
 	<!-- end #header -->
-	
+
 	<div id="page">
 		<div id="content">
 <?php
     //izpisali bomo obvestila
-    if (isset($_SESSION['notice']) && 
+    if (isset($_SESSION['notice']) &&
             !empty($_SESSION['notice'])){
         echo '<div id="notice">'.$_SESSION['notice'].'</div>';
         //ko enkrat obvestilo prikažem, ga "uničim"
