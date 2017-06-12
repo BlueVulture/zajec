@@ -63,13 +63,12 @@ $ad = mysqli_fetch_array($result);
         $result = mysqli_query($conn, $query);
         //preverim, če ima oglas sploh, kakšno sliko
         if (mysqli_num_rows($result) == 0) {
-          echo '<p>lol<p>';
         } else {
             //oglas ima nekaj slik
             while ($video = mysqli_fetch_array($result)) {
                 echo '<div class="delete_wrap">';
                 if ($_SESSION['user_id'] == $ad['user_id']) {
-                    echo '<a href="delete_picture.php?id='.$picture['id'].'&ad_id='.$ad_id.'"
+                    echo '<a href="delete_video.php?id='.$video['id'].'&ad_id='.$ad_id.'"
                           class="myaction"
                           onclick="return confirm(\'Ali ste prepričani?\');">Izbriši</a>';
                     //echo '<br />';

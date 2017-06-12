@@ -8,6 +8,11 @@
     //pred brisanjem oglasa moramo izbrisati še vse
     //njegove komentarje in slike
 
+    $sql = "DELETE FROM videos
+            WHERE ad_id = $id;";
+
+            mysqli_query($conn, $sql);
+
     $sql = "DELETE FROM pictures
             WHERE ad_id = $id;";
 
