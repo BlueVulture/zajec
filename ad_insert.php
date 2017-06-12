@@ -2,8 +2,10 @@
     include_once 'session.php';
     include_once 'database.php';
 
+    date_default_timezone_set(Europe/Ljubljana);
+
     $title = $_POST['title'];
-    $date_b = date("Y-m-d h:m:s");
+    $date_b = CURRENT_TIMESTAMP;
     $date_e = $_POST['date_e'];
     $price = $_POST['price'];
     $category_id = (int)$_POST['category_id'];

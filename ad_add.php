@@ -15,9 +15,14 @@
             <td>Datum začetka:</td>
             <td><input type="date" name="date_b" required="required" /></td>
         </tr>-->
+
         <tr>
             <td>Datum konca:</td>
             <td><input type="date" name="date_e" required="required" /></td>
+        </tr>
+        <tr>
+            <td>Avkcija:</td>
+            <td><input type="checkbox" name="auction"/></td>
         </tr>
         <tr>
             <td>Cena:</td>
@@ -26,11 +31,11 @@
         <tr>
             <td>Kategorija:</td>
             <td>
-                <?php 
+                <?php
                 include_once 'database.php';
-                
+
                 $categories = mysqli_query($conn,
-                        "SELECT * 
+                        "SELECT *
                          FROM categories");
                 echo '<select name="category_id">';
                 while ($category = mysqli_fetch_array($categories)) {
@@ -46,9 +51,9 @@
             <td>
                 <?php /*
                 include_once 'database.php';
-                
+
                 $categories = mysqli_query($conn,
-                        "SELECT * 
+                        "SELECT *
                          FROM categories");
                 echo '<select name="category_id">';
                 while ($category = mysqli_fetch_array($categories)) {
@@ -72,7 +77,7 @@
         </tr>
     </table>
 </form>
- <?php   
+ <?php
     include_once 'nav_menu.php';
     include_once 'footer.php';
 ?>
