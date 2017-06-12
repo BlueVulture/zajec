@@ -45,6 +45,7 @@ $ad = mysqli_fetch_array($result);
                 echo '</div>';
             }
         }
+
         ?>
         <?php
             if ($_SESSION['user_id'] == $ad['user_id']) {
@@ -55,10 +56,36 @@ $ad = mysqli_fetch_array($result);
             <input type="file" name="file" />
             <input type="submit" value="Naloži" />
         </form>
-        <span>Naloži video:</span>
-        <form action="ad_add_picture.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
+
+        <?php
+        $query = "SELECT * FROM videos
+                WHERE ad_id = '$ad_id'";
+        $result = mysqli_query($conn, $query);
+        //preverim, če ima oglas sploh, kakšno sliko
+        if (mysqli_num_rows($result) == 0) {
+          echo '<p>lol<p>';
+        } else {
+            //oglas ima nekaj slik
+            while ($video = mysqli_fetch_array($result)) {
+                echo '<div class="delete_wrap">';
+                if ($_SESSION['user_id'] == $ad['user_id']) {
+                    echo '<a href="delete_picture.php?id='.$picture['id'].'&ad_id='.$ad_id.'"
+                          class="myaction"
+                          onclick="return confirm(\'Ali ste prepričani?\');">Izbriši</a>';
+                    //echo '<br />';
+                }
+                echo '<iframe width="320" height="240" src="' . $video['url'] . '"></iframe>';
+                //echo '<br />';
+
+                echo '</div>';
+            }
+        }
+        ?>
+
+        <span id="nalozi_video">Naloži video:</span>
+        <form action="ad_add_video.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
             <input type="hidden" name="id" value="<?php echo $ad_id; ?>" />
-            <input type="url" name="file" />
+            <input type="url" name="video" />
             <input type="submit" value="Naloži" />
         </form>
         <?php

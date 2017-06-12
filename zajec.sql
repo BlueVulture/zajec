@@ -132,6 +132,25 @@ INSERT INTO `pictures` (`id`, `ad_id`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabele `videos`
+--
+
+CREATE TABLE IF NOT EXISTS `pictures` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ad_id` int(11) NOT NULL,
+  `url` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ad_id` (`ad_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci AUTO_INCREMENT=12 ;
+
+--
+-- Odloži podatke za tabelo `videos`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabele `users`
 --
 

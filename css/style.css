@@ -640,3 +640,8 @@ a:hover {
 #cena {
 	margin: 5px 0px 5px 0px;
 }
+
+#nalozi_video{
+	clear: both;
+	display: block;
+}
