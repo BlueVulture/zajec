@@ -23,14 +23,19 @@
     //$ext = end(explode(".",$_FILES['file']['name']));
 
       //sliko naložimo v naš sistem
-      $name = str_replace("watch?v=","embed/", $_POST['video']);
+      if($_POST['video'] != null && substr_compare("https://www.youtube.com/watch?v=", $_POST['video'], 0, 33))
+      {
+        $name = str_replace("watch?v=","embed/", $_POST['video']);
 
-      echo $name;
-      //zapisat sliko v bazo!
-      mysqli_query($conn, "INSERT INTO videos (ad_id, url)
-                     VALUES ($ad_id, '$name')");
+        echo $name;
+        //zapisat sliko v bazo!
+        mysqli_query($conn, "INSERT INTO videos (ad_id, url)
+                       VALUES ($ad_id, '$name')");
 
         $_SESSION['notice'] = "Uspešno ste dodali video!";
+      }
+
+
 
     //redirect nazaj na oglas
     header("Location: ad_view.php?id=".$ad_id);
