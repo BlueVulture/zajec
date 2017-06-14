@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>Avkcija:</td>
-            <td><input type="checkbox" name="auction" id="auction" onclick="check();"/></td>
+            <td><input type="checkbox" name="auction" id="auction" onclick="check();" value="1"/></td>
         </tr>
         <tr>
             <td id="price">Cena:</td>

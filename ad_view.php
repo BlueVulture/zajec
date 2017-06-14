@@ -103,10 +103,25 @@ $ad = mysqli_fetch_array($result);
         echo '<i>' . $ad['name'] . '</i><br />';
         echo $ad['date_b'] . ' - ' . $ad['date_e'];
 
+        $query = "SELECT auction FROM ads";
+        $result = mysqli_query($conn, $query);
 
-        echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
+        $auction = mysqli_fetch_array($result);
 
-        echo '<div id="ponudba">Oddajte ponudbo: <form action="" method="post"><input type="text"><input type="submit"></form></div>';
+        if($auction['auction'] == 1)
+        {
+          echo '<h4 id="cena">Izklicna cena: ' . $ad['price'] . ' €</h4>';
+          echo '<div id="ponudba">Oddajte ponudbo: <form action="" method="post"><input type="text"><input type="submit"></form></div>';
+        }
+        else
+        {
+          echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
+          echo '<div id="kupi"><form action="" method="post"><input type="hidden" name="id" value'.$ad_id.'><input type="submit" value="Kupi"></form></div>';
+        }
+
+
+
+
 
         echo '<p>' . $ad['description'] . '</p>';
 ?>

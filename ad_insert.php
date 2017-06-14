@@ -10,6 +10,7 @@
     $price = $_POST['price'];
     $category_id = (int)$_POST['category_id'];
     $description = $_POST['description'];
+    $auction = $_POST['auction'];
 
     $user_id = (int)$_SESSION['user_id'];
     //preverim, če so izpolnjeni obvezni atributi
@@ -19,15 +20,16 @@
         $query = sprintf("INSERT INTO ads(title,
                            date_b, date_e, price,
                            category_id, user_id,
-                           description)
+                           description, auction)
                           VALUES ('%s','%s','%s',
                           '%s',$category_id,
-                          $user_id,'%s')",
+                          $user_id,'%s', '%s')",
                 mysqli_real_escape_string($conn, $title),
                 mysqli_real_escape_string($conn, $date_b),
                 mysqli_real_escape_string($conn, $date_e),
                 mysqli_real_escape_string($conn, $price),
-                mysqli_real_escape_string($conn, $description)
+                mysqli_real_escape_string($conn, $description),
+                mysqli_real_escape_string($conn, $auction)
                 );
                 mysqli_query($conn, $query);
                 $ad_id = mysqli_insert_id($conn);
