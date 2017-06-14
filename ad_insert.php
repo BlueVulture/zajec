@@ -19,16 +19,17 @@
         $query = sprintf("INSERT INTO ads(title,
                            date_b, date_e, price,
                            category_id, user_id,
-                           description, auction)
+                           description, auction, bid)
                           VALUES ('%s',CURRENT_TIMESTAMP,'%s',
                           '%s',$category_id,
-                          $user_id,'%s', '%s')",
+                          $user_id,'%s', '%s', '%s')",
                 mysqli_real_escape_string($conn, $title),
                 //mysqli_real_escape_string($conn, $date_b),
                 mysqli_real_escape_string($conn, $date_e),
                 mysqli_real_escape_string($conn, $price),
                 mysqli_real_escape_string($conn, $description),
-                mysqli_real_escape_string($conn, $auction)
+                mysqli_real_escape_string($conn, $auction),
+                mysqli_real_escape_string($conn, $price)
                 );
                 mysqli_query($conn, $query);
                 $ad_id = mysqli_insert_id($conn);
