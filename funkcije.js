@@ -16,5 +16,5 @@ function formCheck(forma) {
 
 function skrij() {
     //alert("lfhl");
-    document.getElementById("error").innerHTML = "";        
+    document.getElementById("error").innerHTML = "";
 }
