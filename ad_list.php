@@ -10,9 +10,9 @@
             WHERE a.date_e > '$curent_date'";
 
     $result = mysqli_query($conn, $sql);
+    $list_name = mysqli_fetch_array($result);
 
     while ($row = mysqli_fetch_array($result)) {
-        $id = $row['id'];
         echo '<div class="oglas">';
         //prikažem sliko
         echo '<a href="ad_view.php?id='.$row['id'].'">';
@@ -23,7 +23,7 @@
             //ima slike
             $slika = mysqli_fetch_array($r);
             echo '<img src="'.$slika['url'].'" width="100px" />';
-            
+
         }
         else {
             //nima slike
@@ -34,13 +34,13 @@
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-        echo '<br /><br />';
-
-        $query = "SELECT u.first_name, u.last_name
-                  FROM users u INNER JOIN ads a ON a.user_id=u.id
-                  WHERE a.id='$id'";
-
-        $result = mysqli_query($conn, $query);
+        // echo '<br /><br />';
+        //
+        // $query = "SELECT u.first_name, u.last_name
+        //           FROM users u INNER JOIN ads a ON a.user_id=u.id
+        //           WHERE a.id=".$list_name['id'];
+        //
+        // $result = mysqli_query($conn, $query);
 
         echo "";
         echo '</div>';
