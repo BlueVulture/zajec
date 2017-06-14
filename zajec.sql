@@ -262,6 +262,8 @@ ALTER TABLE `videos`
 -- Omejitve za tabelo `ads`
 --
 ALTER TABLE `ads`
+//enable 
+  ADD `enabled` BOOLEAN NOT NULL DEFAULT TRUE AFTER `bid`;
   ADD CONSTRAINT `ads_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `ads_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
