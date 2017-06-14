@@ -2,10 +2,10 @@
     include_once 'session.php';
     include_once 'database.php';
 
-    date_default_timezone_set(Europe/Ljubljana);
+    date_default_timezone_set('Europe/Ljubljana');
 
     $title = $_POST['title'];
-    //$date_b = CURRENT_TIMESTAMP;
+    $date_b = date('Y-m-d H:i:s');
     $date_e = $_POST['date_e'];
     $price = $_POST['price'];
     $category_id = (int)$_POST['category_id'];
@@ -20,11 +20,11 @@
                            date_b, date_e, price,
                            category_id, user_id,
                            description, auction, bid)
-                          VALUES ('%s',CURRENT_TIMESTAMP,'%s',
+                          VALUES ('%s','%s','%s',
                           '%s',$category_id,
                           $user_id,'%s', '%s', '%s')",
                 mysqli_real_escape_string($conn, $title),
-                //mysqli_real_escape_string($conn, $date_b),
+                mysqli_real_escape_string($conn, $date_b),
                 mysqli_real_escape_string($conn, $date_e),
                 mysqli_real_escape_string($conn, $price),
                 mysqli_real_escape_string($conn, $description),

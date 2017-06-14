@@ -99,6 +99,12 @@ $ad = mysqli_fetch_array($result);
         echo '<i>' . $ad['name'] . '</i><br />';
         echo $ad['date_b'] . ' - ' . $ad['date_e'];
 
+        $date_start = strtotime($ad['date_b']);
+        $date_end = strtotime($ad['date_e']);
+
+        echo '<br />';
+        echo 'Ostane še '.ceil(abs($date_end - $date_start) / 86400). ' dni';
+
         $query = "SELECT auction FROM ads WHERE id = '$ad_id'";
         $result = mysqli_query($conn, $query);
 
