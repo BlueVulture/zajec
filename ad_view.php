@@ -106,7 +106,7 @@ $ad = mysqli_fetch_array($result);
 
         echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
 
-        echo
+        //echo
         echo '<div id="ponudba">Oddajte ponudbo: <form action="" method="post"><input type="text"><input type="submit"></form></div>';
 
         echo '<p>' . $ad['description'] . '</p>';
