@@ -14,8 +14,8 @@
     //var_dump("$bid");
     var_dump("$new_bid");
 
-    while ($bid)
-    {
+    // while ($bid)
+    // {
       //var_dump("$bid");
         if($new_bid > $bid['bid'])
         {
@@ -25,9 +25,8 @@
 
                   mysqli_query($conn, $sql);
 
-                  //header("Location: ad_view.php?id=$ad_id");
+                  header("Location: ad_view.php?id=$ad_id");
         }
         else {
-            //header("Location: ad_view.php?id=$ad_id");
+            header("Location: ad_view.php?id=$ad_id");
         }
-    }
