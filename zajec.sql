@@ -34,7 +34,8 @@ CREATE TABLE `ads` (
   `date_b` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `date_e` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` text COLLATE utf8_slovenian_ci,
-  `price` float NOT NULL
+  `price` float NOT NULL,
+  `bid` float NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 --
