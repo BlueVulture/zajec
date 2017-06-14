@@ -36,6 +36,7 @@ CREATE TABLE `ads` (
   `description` text COLLATE utf8_slovenian_ci,
   `price` float NOT NULL,
   `bid` float NOT NULL DEFAULT 0,
+  `high_bid` int(11),
   `auction` BOOLEAN NOT NULL DEFAULT false,
   `enabled` BOOLEAN NOT NULL DEFAULT TRUE
   
@@ -57,6 +58,7 @@ INSERT INTO `ads` (`id`, `category_id`, `user_id`, `title`, `date_b`, `date_e`, 
 (25, 2, 7, 'Asus računalnik', '2017-06-12 15:25:33', '2017-06-27 22:00:00', 'CURRENT_TIMESTAMP', 232);
 
 -- --------------------------------------------------------
+
 
 --
 -- Struktura tabele `categories`
@@ -186,7 +188,7 @@ ALTER TABLE `ads`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `category_id` (`category_id`);
-
+  
 --
 -- Indeksi tabele `categories`
 --
@@ -278,6 +280,7 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `pictures`
   ADD CONSTRAINT `pictures_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `ads` (`id`);
+  
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
