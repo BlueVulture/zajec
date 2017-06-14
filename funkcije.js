@@ -18,3 +18,16 @@ function skrij() {
     //alert("lfhl");
     document.getElementById("error").innerHTML = "";
 }
+
+//document.getElementById("auction").addEventListener("check", displayDate);
+
+function check() {
+    if(document.getElementById("auction").checked)
+    {
+      document.getElementById("price").innerHTML = "Izklicna cena:";
+    }
+    else
+    {
+      document.getElementById("price").innerHTML = "Cena:";
+    }
+}

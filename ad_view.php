@@ -58,6 +58,10 @@ $ad = mysqli_fetch_array($result);
         </form>
 
         <?php
+            }
+        ?>
+
+        <?php
         $query = "SELECT * FROM videos
                 WHERE ad_id = '$ad_id'";
         $result = mysqli_query($conn, $query);
@@ -80,7 +84,9 @@ $ad = mysqli_fetch_array($result);
             }
         }
         ?>
-
+        <?php
+            if ($_SESSION['user_id'] == $ad['user_id']) {
+        ?>
         <span id="nalozi_video">Naloži video:</span>
         <form action="ad_add_video.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
             <input type="hidden" name="id" value="<?php echo $ad_id; ?>" />

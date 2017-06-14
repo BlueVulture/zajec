@@ -22,10 +22,10 @@
         </tr>
         <tr>
             <td>Avkcija:</td>
-            <td><input type="checkbox" name="auction"/></td>
+            <td><input type="checkbox" name="auction" id="auction" onclick="check();"/></td>
         </tr>
         <tr>
-            <td>Cena:</td>
+            <td id="price">Cena:</td>
             <td><input type="number" name="price" required="required" /></td>
         </tr>
         <tr>
