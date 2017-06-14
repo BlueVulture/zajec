@@ -5,7 +5,7 @@
     date_default_timezone_set(Europe/Ljubljana);
 
     $title = $_POST['title'];
-    $date_b = CURRENT_TIMESTAMP;
+    //$date_b = CURRENT_TIMESTAMP;
     $date_e = $_POST['date_e'];
     $price = $_POST['price'];
     $category_id = (int)$_POST['category_id'];
@@ -14,18 +14,17 @@
 
     $user_id = (int)$_SESSION['user_id'];
     //preverim, če so izpolnjeni obvezni atributi
-    if (!empty($title) && !empty($date_b)
-            && !empty($date_e) && !empty($price)
-            ) {
+    if (!empty($title) && !empty($date_e) && !empty($price))
+    {
         $query = sprintf("INSERT INTO ads(title,
                            date_b, date_e, price,
                            category_id, user_id,
                            description, auction)
-                          VALUES ('%s','%s','%s',
+                          VALUES ('%s',CURRENT_TIMESTAMP,'%s',
                           '%s',$category_id,
                           $user_id,'%s', '%s')",
                 mysqli_real_escape_string($conn, $title),
-                mysqli_real_escape_string($conn, $date_b),
+                //mysqli_real_escape_string($conn, $date_b),
                 mysqli_real_escape_string($conn, $date_e),
                 mysqli_real_escape_string($conn, $price),
                 mysqli_real_escape_string($conn, $description),

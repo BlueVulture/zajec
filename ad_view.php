@@ -103,8 +103,9 @@ $ad = mysqli_fetch_array($result);
         echo '<i>' . $ad['name'] . '</i><br />';
         echo $ad['date_b'] . ' - ' . $ad['date_e'];
 
-        $query = "SELECT auction FROM ads";
+        $query = "SELECT auction FROM ads WHERE id = '$ad_id'";
         $result = mysqli_query($conn, $query);
+
 
         $auction = mysqli_fetch_array($result);
 
@@ -117,11 +118,7 @@ $ad = mysqli_fetch_array($result);
         {
           echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
           echo '<div id="kupi"><form action="" method="post"><input type="hidden" name="id" value'.$ad_id.'><input type="submit" value="Kupi"></form></div>';
-        }
-
-
-
-
+                  }
 
         echo '<p>' . $ad['description'] . '</p>';
 ?>
