@@ -35,8 +35,9 @@ CREATE TABLE `ads` (
   `date_e` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `description` text COLLATE utf8_slovenian_ci,
   `price` float NOT NULL,
-  `bid_id` int(11) NOT NULL,
-  `auction` boolean NOT NULL DEFAULT false
+  `bid` float NOT NULL DEFAULT 0,
+  `auction` BOOLEAN NOT NULL DEFAULT false,
+  `enabled` BOOLEAN NOT NULL DEFAULT TRUE
   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
@@ -54,19 +55,6 @@ INSERT INTO `ads` (`id`, `category_id`, `user_id`, `title`, `date_b`, `date_e`, 
 (23, 2, 7, 'OGLAS 1', '2017-06-12 15:06:30', '2017-06-29 22:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tellus metus, accumsan eu aliquet vel, mollis nec ligula. Phasellus vel risus tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum at mollis lorem, a mattis velit. Vivamus malesuada eros sem, eget varius orci auctor eu. Praesent tincidunt vestibulum tincidunt. Vivamus consequat vel nisi a tempus. ', 100),
 (24, 1, 7, 'OGLAS 2', '2017-06-12 03:06:17', '2017-06-29 22:00:00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat arcu et fringilla accumsan. Pellentesque vel lectus ut elit dictum ultrices eu ut odio. Nulla aliquam massa et suscipit tempor. Cras ornare purus sit amet mollis luctus. Ut molestie pulvinar nisl nec auctor. Aenean vitae orci ut tellus luctus consectetur at vitae purus. Phasellus arcu nibh, facilisis in mi vel, egestas cursus tortor. Nunc hendrerit facilisis tristique. Ut pellentesque, urna sit amet ullamcorper pellentesque, libero enim scelerisque nisi, a malesuada lorem est mattis ipsum. Proin nec blandit justo. Morbi quis porttitor ante, viverra tristique tellus. Nullam sodales elit ut fringilla tincidunt. Pellentesque quam orci, aliquam at pretium vel, elementum nec neque. Pellentesque vel scelerisque lectus. Aliquam sed arcu non ex semper lacinia eu non nisl. Vestibulum non malesuada tellus.', 300),
 (25, 2, 7, 'Asus računalnik', '2017-06-12 15:25:33', '2017-06-27 22:00:00', 'CURRENT_TIMESTAMP', 232);
-
--- --------------------------------------------------------
-
---
--- Struktura tabele `bids`
---
-
-CREATE TABLE `bids` (
-  `id` int(11) NOT NULL,
-  `bid` boolean NOT NULL DEFAULT 0,
-  `user_id` int(11) NOT NULL
-  
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 -- --------------------------------------------------------
 
@@ -198,7 +186,6 @@ ALTER TABLE `ads`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `category_id` (`category_id`);
-  ADD KEY `bids_id` (`bids_id`);
 
 --
 -- Indeksi tabele `categories`
@@ -234,13 +221,6 @@ ALTER TABLE `videos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ad_id` (`ad_id`);
   
---  
---Indeksi tabele `videos`
---
-ALTER TABLE `bids`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
 --
 -- AUTO_INCREMENT zavrženih tabel
 --
@@ -283,8 +263,6 @@ ALTER TABLE `videos`
 -- Omejitve za tabelo `ads`
 --
 ALTER TABLE `ads`
-//enable 
-  ADD `enabled` BOOLEAN NOT NULL DEFAULT TRUE AFTER `bid`;
   ADD CONSTRAINT `ads_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `ads_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
