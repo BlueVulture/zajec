@@ -6,7 +6,7 @@ $ad_id = (int) $_GET['id'];
 
 $query = "SELECT a.title, a.date_b, a.date_e,
                     a.price, a.description, c.name,
-                    a.user_id
+                    a.user_id, a.bid
                 FROM ads a INNER JOIN categories c
                 ON a.category_id=c.id
               WHERE a.id = $ad_id";
@@ -112,13 +112,14 @@ $ad = mysqli_fetch_array($result);
         if($auction['auction'] == 1)
         {
           echo '<h4 id="cena">Izklicna cena: ' . $ad['price'] . ' €</h4>';
+          echo '<h4 id="cena">Trenutna ponudba: ' . $ad['bid'] . ' €</h4>';
           echo '<div id="ponudba">Oddajte ponudbo: <form action="" method="post"><input type="text"><input type="submit"></form></div>';
         }
         else
         {
           echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
           echo '<div id="kupi"><form action="" method="post"><input type="hidden" name="id" value'.$ad_id.'><input type="submit" value="Kupi"></form></div>';
-                  }
+        }
 
         echo '<p>' . $ad['description'] . '</p>';
 ?>
