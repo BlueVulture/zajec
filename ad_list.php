@@ -23,6 +23,7 @@
             //ima slike
             $slika = mysqli_fetch_array($r);
             echo '<img src="'.$slika['url'].'" width="100px" />';
+            
         }
         else {
             //nima slike
