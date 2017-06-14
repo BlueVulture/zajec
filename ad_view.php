@@ -108,7 +108,7 @@ $ad = mysqli_fetch_array($result);
         {
           echo '<h4 id="cena">Izklicna cena: ' . $ad['price'] . ' €</h4>';
           echo '<h4 id="cena">Trenutna ponudba: ' . $ad['bid'] . ' €</h4>';
-          echo '<div id="ponudba">Oddajte ponudbo: <form action="ad_bid.php" method="post"><input type="hidden" name="id" value='.$ad_id.'><input type="text"><input name="new_bid" type="submit"></form></div>';
+          echo '<div id="ponudba">Oddajte ponudbo: <form action="ad_bid.php" method="post"><input type="hidden" name="id" value='.$ad_id.'><input name="new_bid" type="number"><input type="submit"></form></div>';
         }
         else
         {

@@ -12,6 +12,7 @@
     $bid = mysqli_fetch_array($result);
 
     //var_dump("$bid");
+    var_dump("$new_bid");
 
     while ($bid)
     {
@@ -24,9 +25,9 @@
 
                   mysqli_query($conn, $sql);
 
-                  header("Location: ad_view.php?id=$ad_id");
+                  //header("Location: ad_view.php?id=$ad_id");
         }
         else {
-            header("Location: ad_view.php?id=$ad_id");
+            //header("Location: ad_view.php?id=$ad_id");
         }
     }
