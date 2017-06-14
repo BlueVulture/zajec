@@ -65,20 +65,16 @@ $ad = mysqli_fetch_array($result);
         $query = "SELECT * FROM videos
                 WHERE ad_id = '$ad_id'";
         $result = mysqli_query($conn, $query);
-        //preverim, če ima oglas sploh, kakšno sliko
         if (mysqli_num_rows($result) == 0) {
         } else {
-            //oglas ima nekaj slik
             while ($video = mysqli_fetch_array($result)) {
                 echo '<div class="delete_wrap">';
                 if ($_SESSION['user_id'] == $ad['user_id']) {
                     echo '<a href="delete_video.php?id='.$video['id'].'&ad_id='.$ad_id.'"
                           class="myaction"
                           onclick="return confirm(\'Ali ste prepričani?\');">Izbriši</a>';
-                    //echo '<br />';
                 }
                 echo '<iframe width="320" height="240" src="' . $video['url'] . '"></iframe>';
-                //echo '<br />';
 
                 echo '</div>';
             }
@@ -112,12 +108,12 @@ $ad = mysqli_fetch_array($result);
         {
           echo '<h4 id="cena">Izklicna cena: ' . $ad['price'] . ' €</h4>';
           echo '<h4 id="cena">Trenutna ponudba: ' . $ad['bid'] . ' €</h4>';
-          echo '<div id="ponudba">Oddajte ponudbo: <form action="ad_bid.php" method="post"><input type="text"><input type="submit"></form></div>';
+          echo '<div id="ponudba">Oddajte ponudbo: <form action="ad_bid.php" method="post"><input type="hidden" name="id" value='.$ad_id.'><input type="text"><input name="new_bid" type="submit"></form></div>';
         }
         else
         {
           echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
-          echo '<div id="kupi"><form action="ad_bid.php" method="post"><input type="hidden" name="id" value'.$ad_id.'><input type="submit" value="Kupi"></form></div>';
+          echo '<div id="kupi"><form action="ad_bid.php" method="post"><input type="hidden" name="id" value='.$ad_id.'><input type="submit" value="Kupi"></form></div>';
         }
 
         echo '<p>' . $ad['description'] . '</p>';
