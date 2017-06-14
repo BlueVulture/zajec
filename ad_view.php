@@ -102,7 +102,13 @@ $ad = mysqli_fetch_array($result);
         echo '<h3>' . $ad['title'] . '</h3>';
         echo '<i>' . $ad['name'] . '</i><br />';
         echo $ad['date_b'] . ' - ' . $ad['date_e'];
+
+
         echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
+
+        echo
+        echo '<div id="ponudba">Oddajte ponudbo: <form action="" method="post"><input type="text"><input type="submit"></form></div>';
+
         echo '<p>' . $ad['description'] . '</p>';
 ?>
     </div>

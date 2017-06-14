@@ -645,3 +645,7 @@ a:hover {
 	clear: both;
 	display: block;
 }
+
+#ponudba {
+	margin-bottom: 10px;
+}
