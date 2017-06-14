@@ -136,7 +136,8 @@ CREATE TABLE `users` (
   `last_name` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
   `pass` varchar(50) COLLATE utf8_slovenian_ci NOT NULL,
-  `phone` varchar(20) COLLATE utf8_slovenian_ci DEFAULT NULL
+  `phone` varchar(20) COLLATE utf8_slovenian_ci DEFAULT NULL,
+  `admin` boolean NOT NULL DEFAULT false
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 --
