@@ -30,7 +30,7 @@ $admin = mysqli_fetch_array($admin_result);
         }
 
         echo '</select></br>';
-        echo 'Pošlji vsem: <input type="checkbox" id="send_all_check" name="send_all" onclick="send_all();">';
+        echo 'Pošlji vsem: <input type="checkbox" id="send_all_check" name="send_all" onclick="send_all_msg();">';
 
       }
      ?>

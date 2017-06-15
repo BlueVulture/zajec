@@ -32,7 +32,7 @@ function check() {
     }
 }
 
-  function send_all(){
+  function send_all_msg(){
     if(document.getElementById("send_all_check").checked)
     {
       document.getElementById('email').disabled = true;
