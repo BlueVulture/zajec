@@ -4,6 +4,10 @@ include_once 'database.php';
 //kateri oglas moram prikazati
 $ad_id = (int) $_GET['id'];
 
+$admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
+$admin_result = mysqli_query($conn, $admin_query);
+$admin = mysqli_fetch_array($admin_result);
+
 $query = "SELECT a.title, a.date_b, a.date_e,
                     a.price, a.description, c.name,
                     a.user_id, a.bid
@@ -14,6 +18,7 @@ $query = "SELECT a.title, a.date_b, a.date_e,
 $result = mysqli_query($conn, $query);
 //premenim rezultat v "berljivo" obliko
 $ad = mysqli_fetch_array($result);
+
 ?>
 
 <div id="ad">
@@ -31,7 +36,7 @@ $ad = mysqli_fetch_array($result);
             //oglas ima nekaj slik
             while ($picture = mysqli_fetch_array($result)) {
                 echo '<div class="delete_wrap">';
-                if ($_SESSION['user_id'] == $ad['user_id']) {
+                if ($_SESSION['user_id'] == $ad['user_id'] || $admin['admin'] == 1) {
                     echo '<a href="delete_picture.php?id='.$picture['id'].'&ad_id='.$ad_id.'"
                           class="myaction"
                           onclick="return confirm(\'Ali ste prepričani?\');">Izbriši</a>';
@@ -48,7 +53,7 @@ $ad = mysqli_fetch_array($result);
 
         ?>
         <?php
-            if ($_SESSION['user_id'] == $ad['user_id']) {
+            if ($_SESSION['user_id'] == $ad['user_id'] || $admin['admin'] == 1) {
         ?>
         <form action="ad_add_picture.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
 
@@ -69,7 +74,7 @@ $ad = mysqli_fetch_array($result);
         } else {
             while ($video = mysqli_fetch_array($result)) {
                 echo '<div class="delete_wrap">';
-                if ($_SESSION['user_id'] == $ad['user_id']) {
+                if ($_SESSION['user_id'] == $ad['user_id'] || $admin['admin'] == 1) {
                     echo '<a href="delete_video.php?id='.$video['id'].'&ad_id='.$ad_id.'"
                           class="myaction"
                           onclick="return confirm(\'Ali ste prepričani?\');">Izbriši</a>';
@@ -81,7 +86,7 @@ $ad = mysqli_fetch_array($result);
         }
         ?>
         <?php
-            if ($_SESSION['user_id'] == $ad['user_id']) {
+            if ($_SESSION['user_id'] == $ad['user_id'] || $admin['admin'] == 1) {
         ?>
         <span id="nalozi_video">Naloži video:</span>
         <form action="ad_add_video.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
@@ -163,7 +168,7 @@ $ad = mysqli_fetch_array($result);
 <?php
 //preverim, če je oglas od trenutno prijavljenega
 //uporabnika
-if ($_SESSION['user_id'] == $ad['user_id']) {
+if ($_SESSION['user_id'] == $ad['user_id'] || $admin['admin'] == 1) {
     echo '<span id="del_ad"><a href="ad_delete.php?id=' . $ad_id . '"><button type="button">Izbriši</button></a>';
     echo ' <a href="ad_edit.php?id=' . $ad_id . '"><button type="button">Uredi</button></a></span>';
 }
