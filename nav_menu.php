@@ -10,10 +10,11 @@
 						<li><a href="ad_list.php">Preglej oglase</a></li>
 						<li><a href="my_offers.php">Moja ponudba</a></li>
 						<li><a href="categories_list.php">Preglej kategorije</a></li>
+						<li><a href="messages.php">Sporočila</a></li>
 						<!--<li><a href="#">Urnanet non molestie semper</a></li>
 						<li><a href="#">Proin gravida orci porttitor</a></li>-->
 					</ul>
-				</li>				
+				</li>
 			</ul>
 		</div>
 		<!-- end #sidebar -->
