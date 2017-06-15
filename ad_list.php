@@ -20,7 +20,6 @@ if($_SESSION['admin']==1)
             WHERE (enabled='1') AND(a.date_e > '$curent_date')";
 
     $result = mysqli_query($conn, $sql);
-    $list_name = mysqli_fetch_array($result);}
 
     while ($row = mysqli_fetch_array($result)) {
 
