@@ -24,7 +24,7 @@ if($_SESSION['admin']==1)
 
     while ($row = mysqli_fetch_array($result)) {
 
-        
+
         if($row['enabled'] == 1){
           echo '<div class="oglas">';
         }
@@ -71,9 +71,9 @@ if($_SESSION['admin']==1)
            {
            $lol=mysqli_fetch_row($result);
        echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';
-       
+
            }
-        
+
         echo "";
         echo '</div>';
       }
