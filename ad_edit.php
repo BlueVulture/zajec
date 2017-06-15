@@ -4,13 +4,13 @@
     //id oglasa, ki ga bomo urejali
     $ad_id = (int) $_GET['id'];
     $user_id = $_SESSION['user_id'];
-    
-    $sql = "SELECT * FROM ads 
+
+    $sql = "SELECT * FROM ads
             WHERE id=$ad_id AND user_id=$user_id";
-    
+
     $result = mysqli_query($conn, $sql);
-    
-    //če slučajno uporabnik ni lastni, ga preusmerim nazaj na 
+
+    //če slučajno uporabnik ni lastni, ga preusmerim nazaj na
     //seznam vseh oglasov
     if (mysqli_num_rows($result) != 1) {
         header("Location: ad_list.php");
@@ -19,9 +19,9 @@
 
     //vse podatke o oglasu si shranim v spremenljivko $ad
     $ad = mysqli_fetch_array($result);
-    
-    
-    
+
+
+
 ?>
 <form action="ad_update.php" method="post">
     <input type="hidden" name="id" value="<?php echo $ad['id']; ?>" />
@@ -29,10 +29,6 @@
         <tr>
             <td>Naslov:</td>
             <td><input type="text" name="title" value="<?php echo $ad['title']; ?>" required="required"  /></td>
-        </tr>
-        <tr>
-            <td>Datum začetka:</td>
-            <td><input type="date" name="date_b" value="<?php echo $ad['date_b']; ?>"required="required" /></td>
         </tr>
         <tr>
             <td>Datum konca:</td>
@@ -45,9 +41,9 @@
         <tr>
             <td>Kategorija:</td>
             <td>
-                <?php 
+                <?php
                 $categories = mysqli_query($conn,
-                        "SELECT * 
+                        "SELECT *
                          FROM categories");
                 echo '<select name="category_id">';
                 while ($category = mysqli_fetch_array($categories)) {
@@ -55,7 +51,7 @@
                        echo '<option value="'
                              .$category["id"].'" selected="selected">'
                              .$category["name"]
-                             .'</option>'; 
+                             .'</option>';
                     }
                     else {
                         echo '<option value="'
@@ -79,7 +75,7 @@
         </tr>
     </table>
 </form>
- <?php   
+ <?php
     include_once 'nav_menu.php';
     include_once 'footer.php';
 ?>
