@@ -20,13 +20,14 @@ $admin = mysqli_fetch_array($admin_result);
       if($admin['admin'] == 1)
       {
         echo 'Pošlji oglas: <select name="oglas">';
+        echo '<option value="NULL">(nič)</option>';
 
-        $query = "SELECT title FROM ads;";
+        $query = "SELECT id, title FROM ads;";
         $result = mysqli_query($conn, $query);
 
         while($row = mysqli_fetch_array($result))
         {
-          echo '<option value="'.$row['title'].'">'.$row['title'].'</option>';
+          echo '<option value="'.$row['id'].'">'.$row['title'].'</option>';
         }
 
         echo '</select></br>';
