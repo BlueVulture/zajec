@@ -4,19 +4,30 @@
     //ne želim prikazati preteklih oglasov
    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
     $curent_date = date('Y-m-d',$yesterday);
+if($_SESSION['admin']==1)
 
-    $sql = "SELECT a.id, a.title, a.price, c.name
-            FROM ads a INNER JOIN categories c ON c.id=a.category_id
-            WHERE a.date_e > '$curent_date'";
+    {
+    $sql = "SELECT *
+            FROM ads a INNER JOIN categories c ON c.id=a.category_id";
 
     $result = mysqli_query($conn, $sql);
     $list_name = mysqli_fetch_array($result);
+    }
+    else{
+    $sql = "SELECT *
+            FROM ads a INNER JOIN categories c ON c.id=a.category_id
+            WHERE (enabled='1') AND(a.date_e > '$curent_date')";
+
+    $result = mysqli_query($conn, $sql);
+    $list_name = mysqli_fetch_array($result);}
 
     while ($row = mysqli_fetch_array($result)) {
-        
-        echo '<div class="oglas">';
+        if($row['enabled']==0)
+            {echo '<div class="oglas_disabled">';}
+        else
+            {echo '<div class="oglas">';}
         //prikažem sliko
-        echo '<a href="ad_view.php?id='.$row['id'].'">';
+        echo '<a href=ad_view.php?id='.$row['id'].'">';
         //preveri ali oglas ima sliko
         $slike = "SELECT * FROM pictures WHERE ad_id = ".$row['id'];
         $r = mysqli_query($conn, $slike);
@@ -37,7 +48,9 @@
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-        echo "<a href=enable.php?id=".$row['id']."class=button>Enable/Disable</a>";
+       if($_SESSION['admin']==1){
+           $lol=mysqli_fetch_row($result);
+       echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';}
         
         //include_once (enable.php);
         // echo '<br /><br />';

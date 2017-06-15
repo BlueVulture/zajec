@@ -556,6 +556,17 @@ a:hover {
     margin: 5px;
     float: left;
 }
+.oglas_disabled {
+    background-color: red;
+    color: #FFFFFF;
+    /*border-color: #000000;
+    border-width: 2px;
+    border-style: solid;*/
+    width: 350px;
+    padding: 10px;
+    margin: 5px;
+    float: left;
+}
 
 .oglas img {
     float:left;
