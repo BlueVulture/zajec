@@ -34,7 +34,7 @@
         {
 
         //prikažem sliko
-        echo '<a href=ad_view.php?id='.$row['id'].'">';
+        echo '<a href=ad_view.php?id='.$row['id'].'>';
         //preveri ali oglas ima sliko
         $slike = "SELECT * FROM pictures WHERE ad_id = ".$row['id'];
         $r = mysqli_query($conn, $slike);

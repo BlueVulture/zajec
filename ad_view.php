@@ -56,7 +56,6 @@ $ad = mysqli_fetch_array($result);
             if ($_SESSION['user_id'] == $ad['user_id'] || $admin['admin'] == 1) {
         ?>
         <form action="ad_add_picture.php" method="post" enctype="multipart/form-data" id="nalozi-slike">
-
             <input type="hidden" name="id" value="<?php echo $ad_id; ?>" />
             <input type="file" name="file" />
             <input type="submit" value="Naloži" />
