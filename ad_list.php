@@ -27,7 +27,6 @@
           echo '<div class="oglas_disabled">';
         }
         else{
-          echo 'debug';
         }
 
 
