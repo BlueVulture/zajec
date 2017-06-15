@@ -124,7 +124,7 @@ $ad = mysqli_fetch_array($result);
         else
         {
           echo '<h4 id="cena">Cena: ' . $ad['price'] . ' €</h4>';
-          echo '<div id="kupi"><form action="ad_bid.php" method="post"><input type="hidden" name="id" value='.$ad_id.'><input type="submit" value="Kupi"></form></div>';
+          echo '<div id="kupi"><form action="kupi.php" method="post"><input type="hidden" name="id" value='.$ad_id.'><input type="submit" value="Kupi"></form></div>';
         }
 
         echo '<p>' . $ad['description'] . '</p>';
