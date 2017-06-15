@@ -1,17 +1,17 @@
 <?php
     require_once 'database.php';
-    if (isset($_GET["id"])) 
+    if (isset($_GET["id"]))
         {
-        $id=$_GET("id");
-        $result=mysqli_query($conn,"SELECT * FROM ads WHERE (id=".$id.") ");
+        $id=$_GET["id"];
+        $result=mysqli_query($conn,"SELECT * FROM ads WHERE (id='$id')");
         }
-    
+
         if($row=mysqli_fetch_array($result))
-        {  
-            $res=row['enable'];
+        {
+            $res=$row['enabled'];
             if($res=1)
             {
-    $query="UPDATE ads SET enable=0 WHERE (id=".$id.")";
+    $query="UPDATE ads SET enabled=0 WHERE (id='$id')";
     mysqli_query($conn,$query);
              }
     else
@@ -20,5 +20,7 @@
     mysqli_query($conn,$query);
             }
         }
-        
+
+        header("Location: ad_list.php");
+
 ?>
