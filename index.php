@@ -3,8 +3,13 @@
     include_once 'database.php';
 
 ?>
-<h1>Pozdravljeni</h1>
-
+<?php if($_SESSION['admin']==1)
+    {
+        echo "<h1>Pozdravljeni ADMINISTRATOR</h1>";
+    }
+    else{
+       echo "<h1>Pozdravljeni </h1>";
+    }?>
 <p>
 <?php
     $sql = "SELECT * FROM users WHERE id=".$_SESSION['user_id'];
@@ -18,6 +23,7 @@
     echo "Priimek: ".$result['last_name'].'<br />';
     echo "E-Pošta: ".$result['email'].'<br />';
     echo "Telefon: ".$result['phone'].'<br />';
+    
 ?>
 </p>
 

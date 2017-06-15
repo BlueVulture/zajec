@@ -5,8 +5,8 @@
    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
     $curent_date = date('Y-m-d',$yesterday);
 if($_SESSION['admin']==1)
-
-    {
+{
+    $admin="true";
     $sql = "SELECT *
             FROM ads a INNER JOIN categories c ON c.id=a.category_id";
 
@@ -25,7 +25,10 @@ if($_SESSION['admin']==1)
         if($row['enabled']==0)
             {echo '<div class="oglas_disabled">';}
         else
-            {echo '<div class="oglas">';}
+            {
+            echo '<div class="oglas">';
+            
+            }
         //prikažem sliko
         echo '<a href=ad_view.php?id='.$row['id'].'">';
         //preveri ali oglas ima sliko
@@ -48,9 +51,12 @@ if($_SESSION['admin']==1)
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-       if($_SESSION['admin']==1){
+       if($admin=='true')
+           {
            $lol=mysqli_fetch_row($result);
-       echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';}
+       echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';
+       
+           }
         
         //include_once (enable.php);
         // echo '<br /><br />';
