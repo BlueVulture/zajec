@@ -5,6 +5,10 @@
    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
     $curent_date = date('Y-m-d',$yesterday);
 
+    $admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
+    $admin_result = mysqli_query($conn, $admin_query);
+    $admin = mysqli_fetch_array($admin_result);
+
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
             WHERE a.date_e > '$curent_date'";
@@ -17,10 +21,13 @@
         if($row['enabled'] == 1){
           echo '<div class="oglas">';
         }
-        else{
+        else if($row['enabled'] != 1 && $admin['admin'] == 1){
           echo '<div class="oglas_disabled">';
         }
 
+
+        if($row['enabled'] != 1 && $admin['admin'] == 1 || $row['enabled'] == 1)
+        {
         //prikažem sliko
         echo '<a href="ad_view.php?id='.$row['id'].'">';
         //preveri ali oglas ima sliko
@@ -66,6 +73,7 @@
 
         echo "";
         echo '</div>';
+      }
     }
 
     include_once 'nav_menu.php';
