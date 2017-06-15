@@ -31,3 +31,14 @@ function check() {
       document.getElementById("price").innerHTML = "Cena:";
     }
 }
+
+  function send_all(){
+    if(document.getElementById("send_all_check").checked)
+    {
+      document.getElementById('email').disabled = true;
+    }
+    else
+    {
+      document.getElementById('email').disabled = false;
+    }
+  }

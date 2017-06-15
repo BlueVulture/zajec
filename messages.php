@@ -11,10 +11,30 @@ $admin = mysqli_fetch_array($admin_result);
 <h1>Sporočila</h1>
 
 <form action="send_message.php" method="post">
-    Prejemnik: <input type="email" name="email" /><br />
-    Zadeva: <input type="text" name="subject" /><br />
-    Sporočilo:<br /> <textarea rows=10 cols=50 name="message" /></textarea>
+    <b>Prejemnik: </b><input type="email" name="email" id="email" /><br />
+    <b>Zadeva: </b><input type="text" name="subject" /><br />
+    <b>Sporočilo: </b><br /> <textarea rows=10 cols=50 name="message" /></textarea>
     <br /><br />
+
+    <?php
+      if($admin['admin'] == 1)
+      {
+        echo 'Pošlji oglas: <select name="oglas">';
+
+        $query = "SELECT title FROM ads;";
+        $result = mysqli_query($conn, $query);
+
+        while($row = mysqli_fetch_array($result))
+        {
+          echo '<option value="'.$row['title'].'">'.$row['title'].'</option>';
+        }
+
+        echo '</select></br>';
+        echo 'Pošlji vsem: <input type="checkbox" id="send_all_check" name="send_all" onclick="send_all();">';
+
+      }
+     ?>
+
     <input type="submit" name="submit" value="Pošlji" />
     <input type="reset" name="reset" value="Prekliči" />
 </form>
