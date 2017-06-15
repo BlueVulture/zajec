@@ -10,19 +10,12 @@ if($_SESSION['admin']==1)
     $sql = "SELECT *
             FROM ads a INNER JOIN categories c ON c.id=a.category_id";
 
-<<<<<<< HEAD
+
     $result = mysqli_query($conn, $sql);
     $list_name = mysqli_fetch_array($result);
     }
     else{
-    $sql = "SELECT *
-=======
-    $admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
-    $admin_result = mysqli_query($conn, $admin_query);
-    $admin = mysqli_fetch_array($admin_result);
-
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
->>>>>>> origin/master
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
             WHERE (enabled='1') AND(a.date_e > '$curent_date')";
 
@@ -30,16 +23,8 @@ if($_SESSION['admin']==1)
     $list_name = mysqli_fetch_array($result);}
 
     while ($row = mysqli_fetch_array($result)) {
-<<<<<<< HEAD
-        if($row['enabled']==0)
-            {echo '<div class="oglas_disabled">';}
-        else
-            {
-            echo '<div class="oglas">';
-            
-            }
-=======
 
+        
         if($row['enabled'] == 1){
           echo '<div class="oglas">';
         }
@@ -50,7 +35,7 @@ if($_SESSION['admin']==1)
 
         if($row['enabled'] != 1 && $admin['admin'] == 1 || $row['enabled'] == 1)
         {
->>>>>>> origin/master
+
         //prikažem sliko
         echo '<a href=ad_view.php?id='.$row['id'].'">';
         //preveri ali oglas ima sliko
@@ -81,7 +66,7 @@ if($_SESSION['admin']==1)
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-<<<<<<< HEAD
+
        if($admin=='true')
            {
            $lol=mysqli_fetch_row($result);
@@ -89,21 +74,6 @@ if($_SESSION['admin']==1)
        
            }
         
-=======
-        echo '<br />';
-        echo '<br />';
-        echo "<a href=enable.php?id=".$row['id']."class=button>Enable/Disable</a>";
-
->>>>>>> origin/master
-        //include_once (enable.php);
-        // echo '<br /><br />';
-        //
-        // $query = "SELECT u.first_name, u.last_name
-        //           FROM users u INNER JOIN ads a ON a.user_id=u.id
-        //           WHERE a.id=".$list_name['id'];
-        //
-        // $result = mysqli_query($conn, $query);
-
         echo "";
         echo '</div>';
       }
