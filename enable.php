@@ -2,7 +2,7 @@
     require 'database.php';
         $id=$_POST['id'];
 
-        var_dump($id);
+        //var_dump($id);
         $result=mysqli_query($conn,"SELECT * FROM ads WHERE (id='$id') ");
 
 
@@ -22,7 +22,7 @@
 
 
 
-        //header("Location: ad_list.php");
+        header("Location: ad_list.php");
 
         // else{
         // header("Location: ad_list.php");}

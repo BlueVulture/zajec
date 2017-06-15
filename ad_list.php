@@ -9,7 +9,7 @@
     $admin_result = mysqli_query($conn, $admin_query);
     $admin = mysqli_fetch_array($admin_result);
 
-    // var_dump($admin['admin']);
+    //var_dump($admin['admin']);
 
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
@@ -19,12 +19,15 @@
 
     while ($row = mysqli_fetch_array($result)) {
 
-
+      //var_dump($row['enabled']);
         if($row['enabled'] == 1){
           echo '<div class="oglas">';
         }
         else if($row['enabled'] != 1 && $admin['admin'] == 1){
           echo '<div class="oglas_disabled">';
+        }
+        else{
+          echo 'debug';
         }
 
 
