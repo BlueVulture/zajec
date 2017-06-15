@@ -66,7 +66,7 @@ if($_SESSION['admin']==1)
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-..
+
        if($admin=='true')
            {
            $lol=mysqli_fetch_row($result);
