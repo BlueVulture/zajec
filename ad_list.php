@@ -9,6 +9,8 @@
     $admin_result = mysqli_query($conn, $admin_query);
     $admin = mysqli_fetch_array($admin_result);
 
+    // var_dump($admin['admin']);
+
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
             WHERE (enabled='1') AND(a.date_e > '$curent_date')";
@@ -59,9 +61,9 @@
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-
-      
-
+        echo '<br />';
+        echo '<br />';
+        echo '<form method="post" action="enable.php"><input type="hidden" name="id" value="'.$row['id'].'"><input type="submit" value="Enable/Disable"></form>';
         echo "";
         echo '</div>';
       }
