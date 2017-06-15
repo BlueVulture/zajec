@@ -13,12 +13,14 @@
     $list_name = mysqli_fetch_array($result);
 
     while ($row = mysqli_fetch_array($result)) {
+        
         echo '<div class="oglas">';
         //prikažem sliko
         echo '<a href="ad_view.php?id='.$row['id'].'">';
         //preveri ali oglas ima sliko
         $slike = "SELECT * FROM pictures WHERE ad_id = ".$row['id'];
         $r = mysqli_query($conn, $slike);
+<<<<<<< HEAD
 
         /*<form action="enable.php" method="post" enctype="multipart/form-data" id="enable">
             <input type="hidden" name="id" value="<?php echo $ad_id; ?>" />
@@ -27,6 +29,9 @@
         </form>*/
         //include_once (enable.php);
         if (mysqli_num_rows($r) > 0)
+=======
+        if (mysqli_num_rows($r) > 0) 
+>>>>>>> origin/master
         {
             //ima slike
             $slika = mysqli_fetch_array($r);
@@ -43,6 +48,9 @@
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
+        echo "<a href=enable.php?id=".$row['id']."class=button>Enable/Disable</a>";
+        
+        //include_once (enable.php);
         // echo '<br /><br />';
         //
         // $query = "SELECT u.first_name, u.last_name
