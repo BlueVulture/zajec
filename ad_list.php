@@ -4,21 +4,11 @@
     //ne želim prikazati preteklih oglasov
    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
     $curent_date = date('Y-m-d',$yesterday);
-if($_SESSION['admin']==1)
-{
-    $admin="true";
-    $sql = "SELECT *
-            FROM ads a INNER JOIN categories c ON c.id=a.category_id";
 
-    $result = mysqli_query($conn, $sql);
-    $list_name = mysqli_fetch_array($result);
-    }
-    else{
-    $sql = "SELECT *
-=======
     $admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
     $admin_result = mysqli_query($conn, $admin_query);
     $admin = mysqli_fetch_array($admin_result);
+
 
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
@@ -28,7 +18,6 @@ if($_SESSION['admin']==1)
     $list_name = mysqli_fetch_array($result);}
 
     while ($row = mysqli_fetch_array($result)) {
-<<<<<<< HEAD
         if($row['enabled']==0)
             {echo '<div class="oglas_disabled">';}
         else
@@ -36,7 +25,6 @@ if($_SESSION['admin']==1)
             echo '<div class="oglas">';
 
             }
-=======
 
         if($row['enabled'] == 1){
           echo '<div class="oglas">';
@@ -48,7 +36,6 @@ if($_SESSION['admin']==1)
 
         if($row['enabled'] != 1 && $admin['admin'] == 1 || $row['enabled'] == 1)
         {
->>>>>>> origin/master
         //prikažem sliko
         echo '<a href=ad_view.php?id='.$row['id'].'">';
         //preveri ali oglas ima sliko
@@ -79,20 +66,10 @@ if($_SESSION['admin']==1)
         echo "<b>".$row['price']." € </b>";
         echo '<br />';
         echo "<i>".$row['name']."</i>";
-<<<<<<< HEAD
-       if($admin=='true')
-           {
-           $lol=mysqli_fetch_row($result);
-       echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';
-
-           }
-
-=======
         echo '<br />';
         echo '<br />';
         echo "<a href=enable.php?id=".$row['id']."class=button>Enable/Disable</a>";
 
->>>>>>> origin/master
         //include_once (enable.php);
         // echo '<br /><br />';
         //
