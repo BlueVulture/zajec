@@ -4,17 +4,11 @@
     //ne želim prikazati preteklih oglasov
    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
     $curent_date = date('Y-m-d',$yesterday);
-if($_SESSION['admin']==1)
-{
-    $admin="true";
-    $sql = "SELECT *
-            FROM ads a INNER JOIN categories c ON c.id=a.category_id";
 
+    $admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
+    $admin_result = mysqli_query($conn, $admin_query);
+    $admin = mysqli_fetch_array($admin_result);
 
-    $result = mysqli_query($conn, $sql);
-    $list_name = mysqli_fetch_array($result);
-    }
-    else{
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
             WHERE (enabled='1') AND(a.date_e > '$curent_date')";
@@ -66,12 +60,7 @@ if($_SESSION['admin']==1)
         echo '<br />';
         echo "<i>".$row['name']."</i>";
 
-       if($admin=='true')
-           {
-           $lol=mysqli_fetch_row($result);
-       echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';
-
-           }
+      
 
         echo "";
         echo '</div>';
