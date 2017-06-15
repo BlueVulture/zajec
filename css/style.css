@@ -52,14 +52,6 @@ ul, ol {
 a {
 	color: #5E5E5E;
 }
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: initial;
-}
 
 a:hover {
 }

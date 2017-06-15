@@ -10,7 +10,6 @@ if($_SESSION['admin']==1)
     $sql = "SELECT *
             FROM ads a INNER JOIN categories c ON c.id=a.category_id";
 
-<<<<<<< HEAD
     $result = mysqli_query($conn, $sql);
     $list_name = mysqli_fetch_array($result);
     }
@@ -22,7 +21,6 @@ if($_SESSION['admin']==1)
     $admin = mysqli_fetch_array($admin_result);
 
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
->>>>>>> origin/master
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
             WHERE (enabled='1') AND(a.date_e > '$curent_date')";
 
@@ -36,7 +34,7 @@ if($_SESSION['admin']==1)
         else
             {
             echo '<div class="oglas">';
-            
+
             }
 =======
 
@@ -86,9 +84,9 @@ if($_SESSION['admin']==1)
            {
            $lol=mysqli_fetch_row($result);
        echo '</br><a href="enable.php?id='.$lol[0].'"" class="button">Enable/Disable</a>';
-       
+
            }
-        
+
 =======
         echo '<br />';
         echo '<br />';
