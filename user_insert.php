@@ -1,15 +1,15 @@
 <?php
     include_once 'database.php';
-
+    
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $pass1 = $_POST['pass1'];
     $pass2 = $_POST['pass2'];
-
-
-    if (!empty($last_name) && !empty($email) &&
+       
+    
+    if (!empty($last_name) && !empty($email) && 
             !empty($pass1)) {
         if ($pass1 == $pass2) {
             $pass1 = sha1($pass1);
@@ -29,7 +29,7 @@
         }
     }
     else {
-        //preusmeritev
+        //preusmeritev 
         header("Location: registration.php");
     }
 ?>
