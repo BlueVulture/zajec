@@ -1,6 +1,11 @@
 <?php
     include_once 'session.php';
     include_once 'database.php';
+
+    $admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
+    $admin_result = mysqli_query($conn, $admin_query);
+    $admin = mysqli_fetch_array($admin_result);
+
     //sprejmem ID oglasa za katerega delam
     $ad_id = $_POST['id'];
 
@@ -12,7 +17,7 @@
                             AND user_id = $user_id;");
 
                             //var_dump($result);
-    if (mysqli_num_rows($result) == 0) {
+    if (mysqli_num_rows($result) == 0 || $admin['admin']) {
         $_SESSION['notice'] = 'TO NI TVOJ OGLAS!!!';
         header("Location: ad_list.php");
         die();
