@@ -4,17 +4,17 @@
     //sprejmem ID oglasa za katerega delam
     $ad_id = $_POST['id'];
 
-    var_dump($ad_id);
+    //var_dump($ad_id);
     $user_id = $_SESSION['user_id'];
 
     //preverim, če je oglas od prijavljenega uporabnika
     $result = mysqli_query($conn, 'SELECT * FROM ads WHERE id='.$ad_id.'
                             AND user_id = '.$user_id.';');
 
-                            var_dump($result);
+                            //var_dump($result);
     if (mysqli_num_rows($result) == 0) {
         $_SESSION['notice'] = 'TO NI TVOJ OGLAS!!!';
-        //header("Location: ad_list.php");
+        header("Location: ad_list.php");
         die();
     }
 
