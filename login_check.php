@@ -10,11 +10,11 @@ if (!empty($email) && !empty($pass)) {
     //podatki obstajajo
     //geslo zakodiramo
     $pass = sha1($pass);
-    $query = sprintf("SELECT * FROM users 
+    $query = sprintf("SELECT * FROM users
                         WHERE email='%s' AND pass = '%s'",
             mysqli_real_escape_string($conn, $email),
             mysqli_real_escape_string($conn, $pass));
-    
+
     $result = mysqli_query($conn, $query);
     //število vrstic mora biti enako 1
     if (mysqli_num_rows($result) == 1) {
@@ -28,14 +28,16 @@ if (!empty($email) && !empty($pass)) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['name'] = $user['first_name'].' '.$user['last_name'];
         header("location: index.php");
-        die(); //prekine delovanje te strani        
+        die(); //prekine delovanje te strani
     }
     else {
+        $_SESSION['notice'] = "Napačni podatki";
         header("location: login.php");
         die(); //prekine delovanje te strani
-    }    
+    }
 }
 else {
+    $_SESSION['notice'] = "Prosim vnesite podatke";
     header("location: login.php");
     die(); //prekine delovanje te strani
 }

@@ -3,7 +3,7 @@
     include_once 'database.php';
     //ne želim prikazati preteklih oglasov
    $yesterday  = mktime(0, 0, 0, date("m")  , date("d")-1, date("Y"));
-    $curent_date = date('Y-m-d',$yesterday);
+   $current_date = date('Y-m-d',$yesterday);
 
     $admin_query = "SELECT admin FROM users WHERE id = ".$_SESSION['user_id'].";";
     $admin_result = mysqli_query($conn, $admin_query);
@@ -13,7 +13,7 @@
 
     $sql = "SELECT a.id, a.title, a.price, c.name, a.enabled
             FROM ads a INNER JOIN categories c ON c.id=a.category_id
-            WHERE a.date_e > '$curent_date'";
+            WHERE a.date_e > '$current_date'";
 
     $result = mysqli_query($conn, $sql);
 
