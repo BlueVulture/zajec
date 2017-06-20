@@ -8,8 +8,8 @@
     $user_id = $_SESSION['user_id'];
 
     //preverim, če je oglas od prijavljenega uporabnika
-    $result = mysqli_query($conn, 'SELECT * FROM ads WHERE id='.$ad_id.'
-                            AND user_id = '.$user_id.';');
+    $result = mysqli_query($conn, "SELECT * FROM ads WHERE id=$ad_id
+                            AND user_id = $user_id;");
 
                             //var_dump($result);
     if (mysqli_num_rows($result) == 0) {
